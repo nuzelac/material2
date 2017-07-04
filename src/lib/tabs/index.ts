@@ -21,7 +21,7 @@ import {MdTabBody} from './tab-body';
 import {VIEWPORT_RULER_PROVIDER} from '../core/overlay/position/viewport-ruler';
 import {MdTabHeader} from './tab-header';
 import {ScrollDispatchModule} from '../core/overlay/scroll/index';
-
+import {DndModule} from 'ng2-dnd';
 
 @NgModule({
   imports: [
@@ -30,6 +30,7 @@ import {ScrollDispatchModule} from '../core/overlay/scroll/index';
     MdRippleModule,
     ObserveContentModule,
     ScrollDispatchModule,
+    DndModule.forRoot(),
   ],
   // Don't export all components because some are only to be used internally.
   exports: [

@@ -105,6 +105,12 @@ export class MdTabGroup {
   /** Event emitted when the tab selection has changed. */
   @Output() selectChange: EventEmitter<MdTabChangeEvent> = new EventEmitter<MdTabChangeEvent>(true);
 
+  private _onAddLayer: EventEmitter<any> = new EventEmitter<any>();
+  
+  @Output() get addLayer(): Observable<any> {
+    return this._onAddLayer.asObservable();
+  }
+
   private _groupId: number;
 
   constructor(private _renderer: Renderer2) {
@@ -155,6 +161,10 @@ export class MdTabGroup {
   _focusChanged(index: number) {
     this.focusChange.emit(this._createChangeEvent(index));
   }
+
+  _addLayer($event: any) {
+    this._onAddLayer.emit($event);
+  }  
 
   private _createChangeEvent(index: number): MdTabChangeEvent {
     const event = new MdTabChangeEvent;

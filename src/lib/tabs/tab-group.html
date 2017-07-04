@@ -2,7 +2,8 @@
                [selectedIndex]="selectedIndex"
                [disableRipple]="disableRipple"
                (indexFocused)="_focusChanged($event)"
-               (selectFocusedIndex)="selectedIndex = $event">
+               (selectFocusedIndex)="selectedIndex = $event"
+               dnd-droppable (onDropSuccess)="_addLayer($event)">
   <div class="mat-tab-label" role="tab" md-tab-label-wrapper md-ripple
        *ngFor="let tab of _tabs; let i = index"
        [id]="_getTabLabelId(i)"
